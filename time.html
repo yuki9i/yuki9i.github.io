@@ -10,26 +10,25 @@ function Time() {
    var realTime = new Date();
    var hour = realTime.getHours();
    var hour1 = ((realTime.getHours()-1)+24)%24;
-   var hour2 = realTime.getHours()-2;
+   var hour2 = ((realTime.getHours()-2)+24)%24;
 
    var minutes  = realTime.getMinutes();
    var seconds  = realTime.getSeconds();
 
    var text = hour + ":" + minutes + ":" + seconds;
    document.getElementById("real-time").innerHTML = text;
-   if(hour>=21 && hour<22)
+   if(hour>=12 && hour<13)
    {sample_var.innerHTML = "(休み時間)";}
 
    var text1 = hour1 + ":" + minutes + ":" + seconds;
    document.getElementById("real-time1").innerHTML = text1;
-   if (hour1 == 15 && minutes >= 30 || hour1 == 16 && minutes < 30) 
+   if (hour1 == 12 && minutes >= 30 || hour1 == 13 && minutes < 30) 
       {sample_var1.innerHTML = "(休み時間)";}
   
 
    var text2 = hour2 + ":" + minutes + ":" + seconds; 
    document.getElementById("real-time2").innerHTML = text2;
-   if (hour2 == 12 && minutes >= 30 && minutes < 59) {
-   } else if (hour2 == 13 && minutes >= 0 && minutes < 30) 
+   if (hour2 == 12 && minutes >= 30 ||  hour2 == 13 && minutes < 30) 
    {sample_var2.innerHTML = "(休み時間)";}
 }
 
